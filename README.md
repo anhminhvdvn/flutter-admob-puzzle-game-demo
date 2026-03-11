@@ -12,10 +12,10 @@ This project focuses on **SDK integration, ad lifecycle management, and mobile g
 ## 📱 Screenshots
 
 | Intro Screen | Level Selection | Gameplay |
-|--------------|----------------|----------|----------|----------|----------|
-| ![](assets/images/intro_page.png) | ![](assets/images/level_select.png) | ![](assets/images/gameplay.png) | ![](assets/images/reward.png) | ![](assets/images/ad_reward.png) | ![](assets/images/victory.png) |
 
- 
+<img src="assets/images/intro_page.png" width="250"/>
+<img src="assets/images/level_select.png" width="250"/>
+<img src="assets/images/gameplay.png" width="250"/>
 
 
 ### ✨ Key Features
