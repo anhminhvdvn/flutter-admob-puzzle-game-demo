@@ -341,26 +341,9 @@ This project is for educational purposes. AdMob integration follows Google's pol
 
 ## 👤 Author
 
-Your Name / Team Name
+PHẠM NGỌC MINH
 
 ---
-
-## 🙏 Acknowledgments
-
-- Flutter Team for amazing framework
-- Google AdMob for monetization SDK
-- Community for Flutter packages
-
----
-
-## 📞 Support
-
-For issues or questions:
-1. Check [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
-2. Review AdMob documentation
-3. Check Flutter console logs
-4. Open an issue on GitHub
-
----
+ 
 
 **Made with ❤️ using Flutter**
