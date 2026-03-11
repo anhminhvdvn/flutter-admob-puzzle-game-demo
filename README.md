@@ -13,7 +13,7 @@ This project focuses on **SDK integration, ad lifecycle management, and mobile g
 
 | Intro Screen | Level Selection | Gameplay |
 |--------------|----------------|----------|----------|----------|----------|
-| ![](assets/images/Screenshot 2026-03-11 202438.png) | ![](assets/images/Screenshot 2026-03-11 202458.png) | ![](assets/images/Screenshot 2026-03-11 202536.png) | ![](assets/images/Screenshot 2026-03-11 202554.png) | ![](assets/images/Screenshot 2026-03-11 202607.png) | ![](assets/images/Screenshot 2026-03-11 202626.png) |
+| ![](assets/images/intro_page.png) | ![](assets/images/level_select.png) | ![](assets/images/gameplay.png) | ![](assets/images/reward.png) | ![](assets/images/ad_reward.png) | ![](assets/images/victory.png) |
 
  
 
