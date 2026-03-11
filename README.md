@@ -1,20 +1,53 @@
 # 🎮 Memory Card Game with AdMob Integration
 
-A Flutter-based memory matching card game with comprehensive Google AdMob integration, featuring 5 difficulty levels and various monetization strategies.
+A mobile puzzle game built with **Flutter** demonstrating **Google AdMob monetization strategies** including Banner, Interstitial, Rewarded, Native and App Open ads.
 
-## 📱 About The Project
+This project focuses on **SDK integration, ad lifecycle management, and mobile game UI development**.
+ 
 
-Memory Card Game là một game lật thẻ đơn giản nhưng thú vị, được xây dựng với Flutter và tích hợp đầy đủ các loại quảng cáo của Google AdMob. Game có 5 cấp độ khó tăng dần, hệ thống trợ giúp với rewarded ads, và trải nghiệm người chơi được tối ưu hóa.
+## 🎬 Demo
+
+![Gameplay Demo](screenshots/demo.gif)
+ 
+## 📱 Screenshots
+
+| Intro Screen | Level Selection | Gameplay |
+|--------------|----------------|----------|
+| ![](screenshots/intro.png) | ![](screenshots/level-selection.png) | ![](screenshots/gameplay.png) |
+
+ 
+
 
 ### ✨ Key Features
 
-- 🎯 **5 Difficulty Levels**: Từ dễ (22 lượt) đến siêu khó (12 lượt)
-- 🎨 **Modern UI/UX**: Gradient backgrounds, animations, và responsive design
+- 🎯 **5 Difficulty Levels**: From easy (20 turns) to super hard (12 turns)
+- 🎨 **Modern UI/UX**: Gradient backgrounds, animations, and responsive design
 - 💰 **5 Types of AdMob Ads**: Banner, Interstitial, Rewarded, App Open, Native
-- 🆘 **Help System**: Xem rewarded ad để lật 1 cặp thẻ
-- 📊 **Level Selection**: Màn hình chọn level với native ad
-- 🔄 **Smart Ad Management**: Cooldown logic để tránh spam ads
-- 🎭 **6 Emoji Cards**: 🎮 🎯 🎲 🎪 🎨 🎭
+- 🆘 **Help System**: Check the rewarded ad to flip a pair of cards.
+- 📊 **Level Selection**: Level selection screen with native ads
+- 🔄 **Smart Ad Management**: Cooldown logic to avoid spam ads
+ 
+
+
+
+## 🔧 Tech Stack
+
+- **Framework**: Flutter 3.x
+- **Language**: Dart
+- **Ads SDK**: `google_mobile_ads: ^5.0.0`
+- **State Management**: setState (simple, sufficient)
+- **Platform**: Android & iOS
+ 
+ 
+
+### Code Metrics
+
+- **Total Lines**: ~1,500 lines
+- **Files**: 15 Dart files
+- **Ad Managers**: 5 classes
+- **Pages**: 3 screens
+- **Widgets**: Modular & reusable
+- **Constants**: Centralized configuration
 
 ---
 
@@ -24,19 +57,19 @@ Memory Card Game là một game lật thẻ đơn giản nhưng thú vị, đư�
 
 | Ad Type | Location | Usage Strategy | eCPM Potential |
 |---------|----------|----------------|----------------|
-| **Banner Ad** | Top & Bottom của HomePage | • Always visible during gameplay<br>• Non-intrusive passive income | ⭐⭐ Low |
-| **Interstitial Ad** | Between levels & replay | • Khi chuyển sang level tiếp theo<br>• Khi chọn "Chơi lại" | ⭐⭐⭐⭐ High |
-| **Rewarded Ad** | Help feature | • Opt-in: người dùng chủ động xem<br>• Reward: tự động lật 1 cặp thẻ<br>• Không tính vào số lượt | ⭐⭐⭐⭐⭐ Very High |
-| **App Open Ad** | App resume (foreground) | • Khi app quay lại từ background<br>• Có cooldown 4 giờ<br>• Không show sau rewarded/interstitial | ⭐⭐⭐ Medium |
-| **Native Ad** | Level Selection Page | • Blend vào UI tự nhiên<br>• Size: 120px height<br>• Non-disruptive | ⭐⭐⭐ Medium |
+| **Banner Ad** | Top & Bottom của HomePage | • Always visible during gameplay<br>• Non-intrusive passive income | Low |
+| **Interstitial Ad** | Between levels & replay | • When moving to the next level<br>• When selecting "Play again" | High |
+| **Rewarded Ad** | Help feature | • Opt-in: Active user viewing<br>• Reward: Automatically flips a pair of cards<br>• Not counted towards the number of turns| Very High |
+| **App Open Ad** | App resume (foreground) | • When the app returns from the background: • Has a 4-hour cooldown • Does not show after rewarded/interstitial |  Medium |
+| **Native Ad** | Level Selection Page | • Blends into the natural UI.<br>• Size: 120px height<br>• Non-disruptive | Medium |
 
 ### 📊 Ad Placement Strategy
 
 ```
-IntroPage (Màn hình chào)
+IntroPage (Welcome screen)
     ↓
 LevelSelectionPage 
-    • Native Ad (120px, giữa màn hình)
+    • Native Ad (120px, middle of the screen)
     ↓ (Chọn level 1-5)
 HomePage (Game chính)
     • Banner Ad (Top)
@@ -44,105 +77,47 @@ HomePage (Game chính)
     • Help Button → Rewarded Ad
     ↓ (Win/Lose)
 Game Over Screen
-    • "Màn tiếp theo" → Interstitial Ad
-    • "Chơi lại" → Interstitial Ad
+    • "Next screen" → Interstitial Ad
+    • "Replay" → Interstitial Ad
     
 Background → Foreground
-    • App Open Ad (nếu không có ad nào vừa hiện)
+    • App Open Ad (if no ads have just appeared)
 ```
 
 ### 🚫 Not Implemented
 
-- **Rewarded Interstitial Ad**: Không cần thiết vì đã có Interstitial + Rewarded
+- **Rewarded Interstitial Ad**: It's not necessary because we already have Interstitial + Rewarded.
 
 ---
 
-## 🏗️ Project Structure
+## 📂 Project Structure
 
 ```
-lib/
-├── main.dart                          # Entry point, App Open Ad lifecycle observer
-├── models/
-│   └── card_item.dart                 # Data model cho game cards
-├── pages/
-│   ├── intro_page.dart                # Màn hình chào mừng
-│   ├── level_selection_page.dart      # Màn hình chọn level (Native Ad)
-│   └── home_page.dart                 # Màn hình game chính (Banner, Help)
-├── services/
-│   ├── app_open_ad_manager.dart       # Quản lý App Open Ads (cooldown logic)
-│   ├── banner_ad_manager.dart         # Quản lý Banner Ads
-│   ├── interstital_ad_manager.dart    # Quản lý Interstitial Ads (callbacks)
-│   ├── reward_ad_manager.dart         # Quản lý Rewarded Ads (callbacks)
-│   └── native_ad_manager.dart         # Quản lý Native Ads
-├── utils/
-│   └── constants.dart                 # Ad Unit IDs & Game constants
-└── widgets/
-    └── banner_ad_widget.dart          # Reusable Banner Ad widget
-
-android/                               # Android-specific config
-ios/                                   # iOS-specific config
-test/                                  # Unit tests
-
-Documentation:
-├── README.md                          # This file
-├── PROJECT_STRUCTURE.md               # Detailed architecture
-├── CLEANUP_SUMMARY.md                 # Refactoring history
-└── TROUBLESHOOTING.md                 # Common issues & solutions
+📂lib/
+├── main.dart                            
+├──📂models/
+│   └── card_item.dart                  
+├──📂pages/
+│   ├── intro_page.dart                 
+│   ├── level_selection_page.dart      
+│   └── home_page.dart                  
+├──📂services/
+│   ├── app_open_ad_manager.dart       
+│   ├── banner_ad_manager.dart          
+│   ├── interstital_ad_manager.dart     
+│   ├── reward_ad_manager.dart          
+│   └── native_ad_manager.dart         
+├──📂utils/
+│   └── constants.dart                 
+└──📂widgets/
+    └── banner_ad_widget.dart                        
 ```
+## 📚 Documentation
 
-### 📁 Key Files Description
-
-#### **main.dart**
-- App entry point
-- Global `appOpenAdManager` instance
-- `WidgetsBindingObserver` để track app lifecycle
-- Show App Open Ad khi app resume
-
-#### **constants.dart**
-```dart
-class AdConstants {
-  static String get bannerAdUnitId => ...      // Platform-specific
-  static String get interstitialAdUnitId => ...
-  static String get rewardedAdUnitId => ...
-  static String get appOpenAdUnitId => ...
-  static String get nativeAdUnitId => ...
-}
-
-class GameConstants {
-  static const List<String> cardEmojis = [...];
-  static const int maxLevel = 5;
-  static int getMaxMovesForLevel(int level) => ...
-}
-```
-
-#### **Ad Managers Pattern**
-Tất cả ad managers follow cùng một pattern:
-```dart
-class XxxAdManager {
-  XxxAd? _ad;
-  bool _isAdLoaded = false;
-  
-  void loadAd({Function? onAdLoaded}) { ... }
-  void showAd({callbacks...}) { ... }
-  void dispose() { _ad?.dispose(); }
-}
-```
-
-#### **HomePage** (Game Logic)
-- Nhận `initialLevel` parameter từ Level Selection
-- Quản lý game state: cards, moves, level
-- Banner ads ở top & bottom
-- Help button với rewarded ad integration
-- Interstitial ads khi next level hoặc replay
-
-#### **LevelSelectionPage**
-- Grid 2x5 hiển thị các levels
-- Selection state với visual feedback
-- Native ad ở giữa (120px height)
-- Nút "Chơi" ở dưới cùng với validation
-
----
-
+- **[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)**: Detailed architecture
+- **[CLEANUP_SUMMARY.md](CLEANUP_SUMMARY.md)**: Refactoring history
+- **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)**: Common issues
+ 
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -216,11 +191,11 @@ platform :ios, '12.0'
 
 | Level | Max Moves | Difficulty | Color |
 |-------|-----------|------------|-------|
-| 1 | 22 | Dễ | 🟢 Green |
-| 2 | 20 | Trung Bình | 🔵 Blue |
-| 3 | 18 | Khó | 🟠 Orange |
-| 4 | 16 | Rất Khó | 🔴 Red |
-| 5 | 12 | Siêu Khó | 🟣 Purple |
+| 1 | 22 | Easy | 🟢 Green |
+| 2 | 20 | Medium | 🔵 Blue |
+| 3 | 18 | Hard | 🟠 Orange |
+| 4 | 16 | Very Hard | 🔴 Red |
+| 5 | 12 | Extreme | 🟣 Purple |
 
 ---
 
@@ -243,95 +218,9 @@ platform :ios, '12.0'
 ✅ **Error handling**: Fallbacks when ads fail to load  
 ✅ **Test IDs**: Safe for development  
 
----
-
-## 🐛 Troubleshooting
-
-See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) for:
-- Common log messages explained
-- Performance optimization tips
-- Ad loading issues
-- Frame drop solutions
-
-### Quick Debug
-
-```bash
-# Check for errors
-flutter analyze
-
-# View logs with ad info
-flutter logs | grep -i "ad"
-
-# Performance profiling
-flutter run --profile
-```
-
----
-
-## 📚 Documentation
-
-- **[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)**: Detailed architecture
-- **[CLEANUP_SUMMARY.md](CLEANUP_SUMMARY.md)**: Refactoring history
-- **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)**: Common issues
-
----
-
-## 🔧 Tech Stack
-
-- **Framework**: Flutter 3.x
-- **Language**: Dart
-- **Ads SDK**: `google_mobile_ads: ^5.0.0`
-- **State Management**: setState (simple, sufficient)
-- **Platform**: Android & iOS
-
----
-
-## 📊 Code Quality
-
-```bash
-flutter analyze
-# ✅ No issues found!
-
-flutter test
-# Unit tests can be added in test/
-```
-
-### Code Metrics
-
-- **Total Lines**: ~1,500 lines
-- **Files**: 15 Dart files
-- **Ad Managers**: 5 classes
-- **Pages**: 3 screens
-- **Widgets**: Modular & reusable
-- **Constants**: Centralized configuration
-
----
-
-## 🎯 Roadmap & Future Improvements
-
-### Potential Enhancements
-
-- [ ] Add sound effects & music
-- [ ] Implement leaderboard (Firebase)
-- [ ] Add more emoji sets/themes
-- [ ] Multiplayer mode
-- [ ] Daily challenges
-- [ ] Achievement system
-- [ ] Rewarded Interstitial for "Continue" feature
-- [ ] In-app purchases (remove ads)
-- [ ] Analytics integration (Firebase Analytics)
-- [ ] Crash reporting (Firebase Crashlytics)
-
-### Code Improvements
-
-- [ ] Add unit tests for game logic
-- [ ] Widget tests for UI
-- [ ] Integration tests for ad flows
-- [ ] State management (Provider/Riverpod) if scaling
-- [ ] CI/CD pipeline
-- [ ] Automated testing
-
----
+ 
+ 
+ 
 
 ## 📄 License
 
