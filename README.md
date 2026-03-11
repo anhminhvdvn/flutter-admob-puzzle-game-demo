@@ -18,7 +18,7 @@ Intro Page                |  Select Level       |        Gameplay
 
 Help                    |   Ad Demo             |  Finished    
 :-------------------------:|:-------------------------:|:-------------------------:
-![](assets/images/reward.png)|![](assets/images/reward.png)|![](assets/images/victory.png).
+![](assets/images/reward.png)|![](assets/images/ad_reward.png)|![](assets/images/victory.png).
  
 <br/>
 
