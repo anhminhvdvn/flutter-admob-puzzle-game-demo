@@ -9,9 +9,6 @@ This project focuses on **SDK integration, ad lifecycle management, and mobile g
 
 ![Gameplay Demo](screenshots/demo.gif)
  <br/>
-## 📱 Screenshots
-
-| Intro Screen | Level Selection | Gameplay |
 ## 🖼 Screenshots 
 Intro Page                |  Select Level       |        Gameplay        |   Help
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
@@ -19,8 +16,8 @@ Intro Page                |  Select Level       |        Gameplay        |   Hel
 
 
 
-Help                    |   Ad Demo             |  Finished    |  Comment Screen 
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+Help                    |   Ad Demo             |  Finished    
+:-------------------------:|:-------------------------:|:-------------------------:
 ![](assets/images/reward.png)|![](assets/images/reward.png)|![](assets/images/victory.png).
  
 <br/>
