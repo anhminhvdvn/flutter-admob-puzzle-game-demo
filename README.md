@@ -5,9 +5,9 @@ A mobile puzzle game built with **Flutter** demonstrating **Google AdMob monetiz
 This project focuses on **SDK integration, ad lifecycle management, and mobile game UI development**.
  
 
-## 🎬 Demo
+## 🎬 Demo AdMob SDK
 
-![Gameplay Demo](screenshots/demo.gif)
+![](screenshots/assets/images/admobs.png)
  <br/>
 ## 🖼 Screenshots 
 Intro Page                |  Select Level       |        Gameplay         
