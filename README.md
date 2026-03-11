@@ -7,7 +7,7 @@ This project focuses on **SDK integration, ad lifecycle management, and mobile g
 
 ## 🎬 Demo AdMob SDK
 
-![](screenshots/assets/images/admobs.png)
+![](assets/images/admobs.png)
  <br/>
 ## 🖼 Screenshots 
 Intro Page                |  Select Level       |        Gameplay         
